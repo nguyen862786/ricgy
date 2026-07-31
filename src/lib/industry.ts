@@ -90,8 +90,8 @@ export const INDUSTRIES: Record<IndustryKey, IndustryConfig> = {
   },
 };
 
-export const INDUSTRY_LIST = Object.values(INDUSTRIES);
+export const INDUSTRY_LIST = [INDUSTRIES.fashion];
 
 export function industryOf(key: string | null | undefined): IndustryConfig {
-  return INDUSTRIES[(key as IndustryKey) ?? "fnb"] ?? INDUSTRIES.fnb;
+  return INDUSTRIES[(key as IndustryKey) ?? "fashion"] ?? INDUSTRIES.fashion;
 }

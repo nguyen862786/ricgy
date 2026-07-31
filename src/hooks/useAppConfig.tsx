@@ -56,7 +56,7 @@ function lsSet(k: string, v: string | null) {
 
 export function AppConfigProvider({ children }: { children: ReactNode }) {
   const [industry, setIndustryState] = useState<IndustryKey>(
-    (lsGet(LS_INDUSTRY) as IndustryKey) || "fnb",
+    (lsGet(LS_INDUSTRY) as IndustryKey) || "fashion",
   );
   const [storeId, setStoreIdState] = useState<string | null>(lsGet(LS_STORE));
   const [stores, setStores] = useState<StoreRow[]>([]);
