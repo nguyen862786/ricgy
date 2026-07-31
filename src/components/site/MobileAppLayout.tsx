@@ -63,7 +63,7 @@ export function MobileAppLayout({ children }: { children: React.ReactNode }) {
             }`}
           >
             <Home className="size-5" />
-            <span className="text-[10px] font-medium mt-0.5">Home</span>
+            <span className="text-[10px] font-medium mt-0.5 whitespace-nowrap">Home</span>
           </Link>
 
           <Link
@@ -73,7 +73,7 @@ export function MobileAppLayout({ children }: { children: React.ReactNode }) {
             }`}
           >
             <Grid className="size-5" />
-            <span className="text-[10px] font-medium mt-0.5">Khám phá</span>
+            <span className="text-[10px] font-medium mt-0.5 whitespace-nowrap">Khám phá</span>
           </Link>
 
           <Link
@@ -83,7 +83,7 @@ export function MobileAppLayout({ children }: { children: React.ReactNode }) {
             }`}
           >
             <Search className="size-5" />
-            <span className="text-[10px] font-medium mt-0.5">Tìm kiếm</span>
+            <span className="text-[10px] font-medium mt-0.5 whitespace-nowrap">Tìm kiếm</span>
           </Link>
 
           <Link
@@ -98,7 +98,7 @@ export function MobileAppLayout({ children }: { children: React.ReactNode }) {
                 {cartCount}
               </span>
             )}
-            <span className="text-[10px] font-medium mt-0.5">Giỏ hàng</span>
+            <span className="text-[10px] font-medium mt-0.5 whitespace-nowrap">Giỏ hàng</span>
           </Link>
 
           <Link
@@ -108,7 +108,7 @@ export function MobileAppLayout({ children }: { children: React.ReactNode }) {
             }`}
           >
             <User className="size-5" />
-            <span className="text-[10px] font-medium mt-0.5">Tôi</span>
+            <span className="text-[10px] font-medium mt-0.5 whitespace-nowrap">Tôi</span>
           </Link>
         </nav>
       </div>
