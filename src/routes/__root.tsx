@@ -131,11 +131,30 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const location = useLocation();
 
-  const isDashboard =
-    location.pathname.startsWith("/dashboard") ||
-    location.pathname.startsWith("/login") ||
-    location.pathname.startsWith("/survey-audit") ||
-    location.pathname.startsWith("/api");
+  const storefrontPaths = [
+    "/",
+    "/danh-muc",
+    "/tim-kiem",
+    "/gio-hang",
+    "/profile",
+    "/cong-so",
+    "/the-thao",
+    "/dam-di-choi",
+    "/dam-ngu",
+    "/my-pham",
+    "/thuc-pham",
+    "/ve-chung-toi",
+    "/lien-he",
+    "/lookbook",
+    "/douyin",
+    "/huong-dan-size",
+  ];
+
+  const isStorefront =
+    storefrontPaths.includes(location.pathname) ||
+    location.pathname.startsWith("/san-pham");
+
+  const isDashboard = !isStorefront;
 
   return (
     <QueryClientProvider client={queryClient}>
