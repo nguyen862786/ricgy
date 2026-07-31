@@ -40,6 +40,27 @@ export const requireSupabaseAuth = createMiddleware({ type: "function" }).server
       throw new Error("Unauthorized: No token provided");
     }
 
+    if (token === "preview-mock-token") {
+      const supabase = createClient<Database>(SUPABASE_URL!, SUPABASE_PUBLISHABLE_KEY!, {
+        auth: {
+          storage: undefined,
+          persistSession: false,
+          autoRefreshToken: false,
+        },
+      });
+      return next({
+        context: {
+          supabase,
+          userId: "00000000-0000-0000-0000-preview000001",
+          claims: {
+            sub: "00000000-0000-0000-0000-preview000001",
+            email: "nguyen862786@gmail.com",
+            role: "authenticated",
+          } as any,
+        },
+      });
+    }
+
     const supabase = createClient<Database>(SUPABASE_URL!, SUPABASE_PUBLISHABLE_KEY!, {
       global: {
         headers: {

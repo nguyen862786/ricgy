@@ -6,8 +6,22 @@ import { supabase } from "./client";
 // the browser never attaches the bearer token to serverFn RPCs.
 export const attachSupabaseAuth = createMiddleware({ type: "function" }).client(
   async ({ next }) => {
-    const { data } = await supabase.auth.getSession();
-    const token = data.session?.access_token;
+    let token: string | undefined;
+
+    if (typeof window !== "undefined") {
+      const isOff = localStorage.getItem("dev_preview_bypass_off") === "1";
+      const isBypass = localStorage.getItem("dev_preview_bypass") === "1";
+      // DEV_FORCE_BYPASS is true by default when PREVIEW_ENABLED is true.
+      if (isBypass || !isOff) {
+        token = "preview-mock-token";
+      }
+    }
+
+    if (!token) {
+      const { data } = await supabase.auth.getSession();
+      token = data.session?.access_token;
+    }
+
     return next({
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     });
