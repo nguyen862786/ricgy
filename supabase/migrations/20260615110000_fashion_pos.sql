@@ -49,6 +49,6 @@ VALUES
    '{"frame_material":"Kim loại","lens_type":"Polarized","uv_protection":"UV400","frame_width_mm":138}'::jsonb),
   ('a3000000-0000-0000-0000-000000000003','b1000000-fa00-0000-0000-000000000004','EL-DH-SLV-FREE','FREE','Bạc','#C0C0C0', 12,
    '{"movement":"Quartz","water_resistance_m":50,"case_material":"Stainless Steel","strap_material":"Da thật"}'::jsonb),
-  ('a3000000-0000-0000-0000-000000000005','b1000000-fa00-0000-0000-000000000005','EL-KT-PNK-LRG','FREE','Hồng','#FF69B4', 50,
+  ('a3000000-0000-0000-0000-000000000003','b1000000-fa00-0000-0000-000000000005','EL-KT-PNK-LRG','FREE','Hồng','#FF69B4', 50,
    '{"material":"Nhựa resin","style":"Cài cua","size":"Lớn"}'::jsonb)
 ON CONFLICT (tenant_id, sku) DO NOTHING;
