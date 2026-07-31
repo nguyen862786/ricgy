@@ -184,33 +184,6 @@ export function AppSidebar() {
         {renderGroup("Super Admin", billingItems)}
       </SidebarContent>
       <SidebarFooter>
-        <div className="space-y-3 px-2 group-data-[collapsible=icon]:hidden">
-          <div>
-            <div className="mb-2 text-[0.65rem] font-semibold uppercase tracking-widest text-accent/80">
-              Đang online
-            </div>
-            <div className="flex items-center">
-              {ONLINE_TEAM.map((t, i) => (
-                <Avatar
-                  key={t}
-                  className="h-7 w-7 border-2 border-sidebar"
-                  style={{ marginLeft: i === 0 ? 0 : -8 }}
-                >
-                  <AvatarFallback className="bg-sidebar-accent text-[0.6rem] font-semibold text-accent">
-                    {t}
-                  </AvatarFallback>
-                </Avatar>
-              ))}
-              <span
-                className="grid h-7 place-items-center rounded-full bg-accent px-2 text-[0.65rem] font-bold text-accent-foreground"
-                style={{ marginLeft: -8 }}
-              >
-                +70
-              </span>
-            </div>
-          </div>
-          <NetworkMap />
-        </div>
         <div className="flex items-center gap-2 px-2 py-2">
           <div className="flex-1 overflow-hidden group-data-[collapsible=icon]:hidden">
             <div className="truncate text-xs font-medium text-sidebar-foreground/80">
@@ -229,36 +202,5 @@ export function AppSidebar() {
         </div>
       </SidebarFooter>
     </Sidebar>
-  );
-}
-
-const ONLINE_TEAM = ["AN", "BT", "CH", "DM"];
-
-function NetworkMap() {
-  return (
-    <svg viewBox="0 0 200 90" className="w-full" aria-hidden>
-      {Array.from({ length: 7 }).map((_, r) =>
-        Array.from({ length: 16 }).map((_, c) => (
-          <circle
-            key={`${r}-${c}`}
-            cx={8 + c * 12}
-            cy={12 + r * 11}
-            r={1.1}
-            fill="rgba(255,255,255,0.18)"
-          />
-        )),
-      )}
-      <path
-        d="M20 70 Q60 10 100 50 T180 30"
-        fill="none"
-        stroke="var(--accent)"
-        strokeWidth={1.5}
-        strokeDasharray="3 3"
-        opacity={0.85}
-      />
-      <circle cx={20} cy={70} r={3} fill="var(--accent)" />
-      <circle cx={100} cy={50} r={3} fill="var(--accent)" />
-      <circle cx={180} cy={30} r={3} fill="var(--accent)" />
-    </svg>
   );
 }
