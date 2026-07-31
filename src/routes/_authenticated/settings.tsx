@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { updateAppSetting } from "@/lib/users.functions";
 
 export const Route = createFileRoute("/_authenticated/settings")({
   component: SettingsPage,
@@ -32,6 +34,7 @@ const KEYS = [
 function SettingsPage() {
   const { isStaff } = useAuth();
   const qc = useQueryClient();
+  const updateSetting = useServerFn(updateAppSetting);
 
   const { data: settings = {} } = useQuery({
     queryKey: ["app_settings"],
@@ -46,16 +49,12 @@ function SettingsPage() {
   if (!isStaff) return <div className="text-muted-foreground">Không có quyền.</div>;
 
   async function toggle(key: string, on: boolean) {
-    const { error } = await supabase
-      .from("app_settings")
-      .upsert(
-        { key, value: { enabled: on }, updated_at: new Date().toISOString() },
-        { onConflict: "key" },
-      );
-    if (error) toast.error(error.message);
-    else {
+    try {
+      await updateSetting({ key, enabled: on });
       toast.success("Đã lưu");
       qc.invalidateQueries({ queryKey: ["app_settings"] });
+    } catch (error: any) {
+      toast.error(error.message || "Không thể lưu cấu hình");
     }
   }
 

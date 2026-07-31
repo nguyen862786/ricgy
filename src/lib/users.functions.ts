@@ -64,3 +64,24 @@ export const setUserRole = createServerFn({ method: "POST" })
     }
     return { ok: true };
   });
+
+const updateSettingInput = z.object({
+  key: z.string(),
+  enabled: z.boolean(),
+});
+
+export const updateAppSetting = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((d) => updateSettingInput.parse(d))
+  .handler(async ({ data, context }) => {
+    await assertStaff(context.userId);
+    const { error } = await supabaseAdmin
+      .from("app_settings")
+      .upsert(
+        { key: data.key, value: { enabled: data.enabled }, updated_at: new Date().toISOString() },
+        { onConflict: "key" }
+      );
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
