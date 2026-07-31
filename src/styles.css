@@ -1,0 +1,259 @@
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@source "../src";
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo Black", "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  /* Brand Specific Colors */
+  --color-cloud: var(--cloud);
+  --color-ink: var(--ink);
+  --color-fuchsia-pop: var(--fuchsia-pop);
+  --color-teal-trans: var(--teal-trans);
+  --color-cocoa: var(--cocoa);
+}
+
+:root {
+  /* Default dashboard tokens (moss & mustard) */
+  --radius: 1.5rem;
+  --background: #e4eceb;
+  --foreground: #2d3a37;
+  --card: #ffffff;
+  --card-foreground: #2d3a37;
+  --popover: #ffffff;
+  --popover-foreground: #2d3a37;
+  --primary: #3d5650;
+  --primary-foreground: #ffffff;
+  --secondary: #d7e2df;
+  --secondary-foreground: #2d3a37;
+  --muted: #d7e2df;
+  --muted-foreground: #6a7d78;
+  --accent: #d4a333;
+  --accent-foreground: #2d3a37;
+  --destructive: #c0492f;
+  --destructive-foreground: #ffffff;
+  --border: #cad8d4;
+  --input: #cad8d4;
+  --ring: #d4a333;
+  --chart-1: #d4a333;
+  --chart-2: #3d5650;
+  --chart-3: #2a9d8f;
+  --chart-4: #8ab0a6;
+  --chart-5: #cca028;
+  --sidebar: #3d5650;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #2d3a37;
+  --sidebar-accent: #4a655e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #d4a333;
+  --success: #2a9d8f;
+  --success-foreground: #ffffff;
+  --warning: #d4a333;
+  --warning-foreground: #2d3a37;
+}
+
+.dark {
+  --background: #1f2c29;
+  --foreground: #eef3f1;
+  --card: #2a3a36;
+  --card-foreground: #eef3f1;
+  --popover: #2a3a36;
+  --popover-foreground: #eef3f1;
+  --primary: #d4a333;
+  --primary-foreground: #2d3a37;
+  --secondary: #34453f;
+  --secondary-foreground: #eef3f1;
+  --muted: #34453f;
+  --muted-foreground: #a3b5b0;
+  --accent: #d4a333;
+  --accent-foreground: #2d3a37;
+  --destructive: #d4634a;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #d4a333;
+  --chart-1: #d4a333;
+  --chart-2: #6fa093;
+  --chart-3: #2a9d8f;
+  --chart-4: #8ab0a6;
+  --chart-5: #cca028;
+  --sidebar: #2a3a36;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #2d3a37;
+  --sidebar-accent: #3a4f49;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #d4a333;
+  --success: #3fb3a4;
+  --success-foreground: #14241f;
+  --warning: #d4a333;
+  --warning-foreground: #2d3a37;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * RICGY Storefront Styling (Isolated container)
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+.brand-ricgy {
+  --radius: 0rem;
+
+  /* 2026 Editorial Mono Bold — Cloud Dancer × Ink × Electric Fuchsia × Transformative Teal */
+  --cloud: oklch(0.965 0.005 80);          /* #F4F1EA Cloud Dancer */
+  --ink: oklch(0.16 0.01 280);             /* #0F0F12 Ink black */
+  --fuchsia-pop: oklch(0.62 0.27 355);     /* #E91E76 Electric Fuchsia */
+  --teal-trans: oklch(0.42 0.08 195);      /* #0E5C5E Transformative Teal */
+  --cocoa: oklch(0.42 0.06 50);            /* Cocoa Powder grounding */
+
+  --background: oklch(0.965 0.005 80);
+  --foreground: oklch(0.16 0.01 280);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.01 280);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.01 280);
+
+  --primary: oklch(0.16 0.01 280);                  /* Ink as primary — bold contrast */
+  --primary-foreground: oklch(0.965 0.005 80);
+  --secondary: oklch(0.92 0.01 80);
+  --secondary-foreground: oklch(0.16 0.01 280);
+  --muted: oklch(0.93 0.008 80);
+  --muted-foreground: oklch(0.42 0.02 280);
+  --accent: oklch(0.62 0.27 355);                   /* Electric Fuchsia accent */
+  --accent-foreground: oklch(0.965 0.005 80);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.965 0.005 80);
+  --border: oklch(0.16 0.01 280 / 12%);
+  --input: oklch(0.16 0.01 280 / 14%);
+  --ring: oklch(0.62 0.27 355);
+
+  /* Douyin Mode pop tokens */
+  --douyin-yellow: #FFD60A;
+  --douyin-red: #FF2D55;
+  --douyin-chrome-1: #C5F1FF;
+  --douyin-chrome-2: #FFB8E0;
+  --douyin-chrome-3: #B4A7FF;
+  --douyin-cinema: #E8DCC8;
+
+  /* Force background & color */
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.brand-ricgy h1, 
+.brand-ricgy h2, 
+.brand-ricgy h3, 
+.brand-ricgy h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.brand-ricgy .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 0.85;
+}
+
+.brand-ricgy .font-mono-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* Animations */
+@keyframes douyin-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+@keyframes douyin-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes douyin-progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+@keyframes douyin-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes douyin-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.3; }
+}
+
+/* Custom classes */
+.brand-ricgy .animate-douyin-pulse {
+  animation: douyin-pulse 2s infinite ease-in-out;
+}
+.brand-ricgy .animate-douyin-spin {
+  animation: douyin-spin 1s linear infinite;
+}
+.brand-ricgy .animate-douyin-progress {
+  animation: douyin-progress 5s linear forwards;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  }
+}
