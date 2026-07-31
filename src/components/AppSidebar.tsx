@@ -89,25 +89,11 @@ const adminItems: SidebarItem[] = [
   { title: "Cấu hình", url: "/settings", icon: Settings },
 ];
 
-const hotelItems: SidebarItem[] = [
-  { title: "Đặt phòng",    url: "/hotel",               icon: BedDouble },
-  { title: "Cổng khách",   url: "/hotel/guest-portal",  icon: Tablet },
-  { title: "Chat đa kênh", url: "/hotel/chat",          icon: MessageSquare },
-];
-
 const fashionItems: SidebarItem[] = [
   { title: "Ma trận sản phẩm", url: "/fashion",             icon: Grid3x3 },
   { title: "Phòng thử AI",     url: "/fashion/ai-fitting",  icon: Wand2 },
   { title: "Đổi trả hàng",    url: "/fashion/returns",     icon: RefreshCcw },
   { title: "Phụ kiện",        url: "/fashion/accessories", icon: Gem },
-];
-
-const veganItems: SidebarItem[] = [
-  { title: "Tổng quan chuỗi",  url: "/vegan",          icon: Sprout },
-  { title: "Sản phẩm & Lô",    url: "/vegan/products", icon: Package },
-  { title: "Chùa & Logistics", url: "/vegan/temples",  icon: Building2 },
-  { title: "POS bán lẻ",       url: "/vegan/pos",      icon: Monitor },
-  { title: "Quỹ & Đối soát",   url: "/vegan/charity",  icon: HeartHandshake },
 ];
 
 const billingItems: SidebarItem[] = [
@@ -192,9 +178,7 @@ export function AppSidebar() {
       <SidebarContent>
         {renderGroup("Kinh doanh", mainItems)}
         {renderGroup("Vận hành", opsItems)}
-        {renderGroup("Khách sạn", hotelItems)}
         {renderGroup("Thời trang", fashionItems)}
-        {renderGroup("Thực phẩm chay", veganItems)}
         {renderGroup("Tài chính", walletItems)}
         {renderGroup("Quản trị", adminItems)}
         {renderGroup("Super Admin", billingItems)}

@@ -32,7 +32,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SanPhamIdRouteImport } from './routes/san-pham.$id'
 import { Route as AuthenticatedWithdrawalsRouteImport } from './routes/_authenticated/withdrawals'
 import { Route as AuthenticatedWalletRouteImport } from './routes/_authenticated/wallet'
-import { Route as AuthenticatedVeganRouteImport } from './routes/_authenticated/vegan'
 import { Route as AuthenticatedUsersRouteImport } from './routes/_authenticated/users'
 import { Route as AuthenticatedTiersRouteImport } from './routes/_authenticated/tiers'
 import { Route as AuthenticatedSurveyStatsRouteImport } from './routes/_authenticated/survey-stats'
@@ -46,24 +45,13 @@ import { Route as AuthenticatedPosRouteImport } from './routes/_authenticated/po
 import { Route as AuthenticatedOrdersRouteImport } from './routes/_authenticated/orders'
 import { Route as AuthenticatedMarketingRouteImport } from './routes/_authenticated/marketing'
 import { Route as AuthenticatedInventoryRouteImport } from './routes/_authenticated/inventory'
-import { Route as AuthenticatedHotelRouteImport } from './routes/_authenticated/hotel'
 import { Route as AuthenticatedFashionRouteImport } from './routes/_authenticated/fashion'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedCustomersRouteImport } from './routes/_authenticated/customers'
 import { Route as AuthenticatedBillingRouteImport } from './routes/_authenticated/billing'
 import { Route as AuthenticatedAffiliateRouteImport } from './routes/_authenticated/affiliate'
 import { Route as ApiPublicBillingWebhookRouteImport } from './routes/api/public/billing-webhook'
-import { Route as AuthenticatedVeganTemplesRouteImport } from './routes/_authenticated/vegan.temples'
-import { Route as AuthenticatedVeganProductsRouteImport } from './routes/_authenticated/vegan.products'
-import { Route as AuthenticatedVeganPosRouteImport } from './routes/_authenticated/vegan.pos'
-import { Route as AuthenticatedVeganOrdersRouteImport } from './routes/_authenticated/vegan.orders'
-import { Route as AuthenticatedVeganCharityRouteImport } from './routes/_authenticated/vegan.charity'
 import { Route as AuthenticatedSuperAdminModulesRouteImport } from './routes/_authenticated/super-admin.modules'
-import { Route as AuthenticatedHotelStayRouteImport } from './routes/_authenticated/hotel.stay'
-import { Route as AuthenticatedHotelRequestsRouteImport } from './routes/_authenticated/hotel.requests'
-import { Route as AuthenticatedHotelOperationsRouteImport } from './routes/_authenticated/hotel.operations'
-import { Route as AuthenticatedHotelGuestPortalRouteImport } from './routes/_authenticated/hotel.guest-portal'
-import { Route as AuthenticatedHotelChatRouteImport } from './routes/_authenticated/hotel.chat'
 import { Route as AuthenticatedFashionReturnsRouteImport } from './routes/_authenticated/fashion.returns'
 import { Route as AuthenticatedFashionAiFittingRouteImport } from './routes/_authenticated/fashion.ai-fitting'
 import { Route as AuthenticatedFashionAccessoriesRouteImport } from './routes/_authenticated/fashion.accessories'
@@ -184,11 +172,6 @@ const AuthenticatedWalletRoute = AuthenticatedWalletRouteImport.update({
   path: '/wallet',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
-const AuthenticatedVeganRoute = AuthenticatedVeganRouteImport.update({
-  id: '/vegan',
-  path: '/vegan',
-  getParentRoute: () => AuthenticatedRoute,
-} as any)
 const AuthenticatedUsersRoute = AuthenticatedUsersRouteImport.update({
   id: '/users',
   path: '/users',
@@ -255,11 +238,6 @@ const AuthenticatedInventoryRoute = AuthenticatedInventoryRouteImport.update({
   path: '/inventory',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
-const AuthenticatedHotelRoute = AuthenticatedHotelRouteImport.update({
-  id: '/hotel',
-  path: '/hotel',
-  getParentRoute: () => AuthenticatedRoute,
-} as any)
 const AuthenticatedFashionRoute = AuthenticatedFashionRouteImport.update({
   id: '/fashion',
   path: '/fashion',
@@ -290,69 +268,12 @@ const ApiPublicBillingWebhookRoute = ApiPublicBillingWebhookRouteImport.update({
   path: '/api/public/billing-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedVeganTemplesRoute =
-  AuthenticatedVeganTemplesRouteImport.update({
-    id: '/temples',
-    path: '/temples',
-    getParentRoute: () => AuthenticatedVeganRoute,
-  } as any)
-const AuthenticatedVeganProductsRoute =
-  AuthenticatedVeganProductsRouteImport.update({
-    id: '/products',
-    path: '/products',
-    getParentRoute: () => AuthenticatedVeganRoute,
-  } as any)
-const AuthenticatedVeganPosRoute = AuthenticatedVeganPosRouteImport.update({
-  id: '/pos',
-  path: '/pos',
-  getParentRoute: () => AuthenticatedVeganRoute,
-} as any)
-const AuthenticatedVeganOrdersRoute =
-  AuthenticatedVeganOrdersRouteImport.update({
-    id: '/orders',
-    path: '/orders',
-    getParentRoute: () => AuthenticatedVeganRoute,
-  } as any)
-const AuthenticatedVeganCharityRoute =
-  AuthenticatedVeganCharityRouteImport.update({
-    id: '/charity',
-    path: '/charity',
-    getParentRoute: () => AuthenticatedVeganRoute,
-  } as any)
 const AuthenticatedSuperAdminModulesRoute =
   AuthenticatedSuperAdminModulesRouteImport.update({
     id: '/super-admin/modules',
     path: '/super-admin/modules',
     getParentRoute: () => AuthenticatedRoute,
   } as any)
-const AuthenticatedHotelStayRoute = AuthenticatedHotelStayRouteImport.update({
-  id: '/stay',
-  path: '/stay',
-  getParentRoute: () => AuthenticatedHotelRoute,
-} as any)
-const AuthenticatedHotelRequestsRoute =
-  AuthenticatedHotelRequestsRouteImport.update({
-    id: '/requests',
-    path: '/requests',
-    getParentRoute: () => AuthenticatedHotelRoute,
-  } as any)
-const AuthenticatedHotelOperationsRoute =
-  AuthenticatedHotelOperationsRouteImport.update({
-    id: '/operations',
-    path: '/operations',
-    getParentRoute: () => AuthenticatedHotelRoute,
-  } as any)
-const AuthenticatedHotelGuestPortalRoute =
-  AuthenticatedHotelGuestPortalRouteImport.update({
-    id: '/guest-portal',
-    path: '/guest-portal',
-    getParentRoute: () => AuthenticatedHotelRoute,
-  } as any)
-const AuthenticatedHotelChatRoute = AuthenticatedHotelChatRouteImport.update({
-  id: '/chat',
-  path: '/chat',
-  getParentRoute: () => AuthenticatedHotelRoute,
-} as any)
 const AuthenticatedFashionReturnsRoute =
   AuthenticatedFashionReturnsRouteImport.update({
     id: '/returns',
@@ -403,7 +324,6 @@ export interface FileRoutesByFullPath {
   '/customers': typeof AuthenticatedCustomersRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/fashion': typeof AuthenticatedFashionRouteWithChildren
-  '/hotel': typeof AuthenticatedHotelRouteWithChildren
   '/inventory': typeof AuthenticatedInventoryRoute
   '/marketing': typeof AuthenticatedMarketingRoute
   '/orders': typeof AuthenticatedOrdersRoute
@@ -417,7 +337,6 @@ export interface FileRoutesByFullPath {
   '/survey-stats': typeof AuthenticatedSurveyStatsRoute
   '/tiers': typeof AuthenticatedTiersRoute
   '/users': typeof AuthenticatedUsersRoute
-  '/vegan': typeof AuthenticatedVeganRouteWithChildren
   '/wallet': typeof AuthenticatedWalletRoute
   '/withdrawals': typeof AuthenticatedWithdrawalsRoute
   '/san-pham/$id': typeof SanPhamIdRoute
@@ -425,17 +344,7 @@ export interface FileRoutesByFullPath {
   '/fashion/accessories': typeof AuthenticatedFashionAccessoriesRoute
   '/fashion/ai-fitting': typeof AuthenticatedFashionAiFittingRoute
   '/fashion/returns': typeof AuthenticatedFashionReturnsRoute
-  '/hotel/chat': typeof AuthenticatedHotelChatRoute
-  '/hotel/guest-portal': typeof AuthenticatedHotelGuestPortalRoute
-  '/hotel/operations': typeof AuthenticatedHotelOperationsRoute
-  '/hotel/requests': typeof AuthenticatedHotelRequestsRoute
-  '/hotel/stay': typeof AuthenticatedHotelStayRoute
   '/super-admin/modules': typeof AuthenticatedSuperAdminModulesRoute
-  '/vegan/charity': typeof AuthenticatedVeganCharityRoute
-  '/vegan/orders': typeof AuthenticatedVeganOrdersRoute
-  '/vegan/pos': typeof AuthenticatedVeganPosRoute
-  '/vegan/products': typeof AuthenticatedVeganProductsRoute
-  '/vegan/temples': typeof AuthenticatedVeganTemplesRoute
   '/api/public/billing-webhook': typeof ApiPublicBillingWebhookRoute
 }
 export interface FileRoutesByTo {
@@ -463,7 +372,6 @@ export interface FileRoutesByTo {
   '/customers': typeof AuthenticatedCustomersRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/fashion': typeof AuthenticatedFashionRouteWithChildren
-  '/hotel': typeof AuthenticatedHotelRouteWithChildren
   '/inventory': typeof AuthenticatedInventoryRoute
   '/marketing': typeof AuthenticatedMarketingRoute
   '/orders': typeof AuthenticatedOrdersRoute
@@ -477,7 +385,6 @@ export interface FileRoutesByTo {
   '/survey-stats': typeof AuthenticatedSurveyStatsRoute
   '/tiers': typeof AuthenticatedTiersRoute
   '/users': typeof AuthenticatedUsersRoute
-  '/vegan': typeof AuthenticatedVeganRouteWithChildren
   '/wallet': typeof AuthenticatedWalletRoute
   '/withdrawals': typeof AuthenticatedWithdrawalsRoute
   '/san-pham/$id': typeof SanPhamIdRoute
@@ -485,17 +392,7 @@ export interface FileRoutesByTo {
   '/fashion/accessories': typeof AuthenticatedFashionAccessoriesRoute
   '/fashion/ai-fitting': typeof AuthenticatedFashionAiFittingRoute
   '/fashion/returns': typeof AuthenticatedFashionReturnsRoute
-  '/hotel/chat': typeof AuthenticatedHotelChatRoute
-  '/hotel/guest-portal': typeof AuthenticatedHotelGuestPortalRoute
-  '/hotel/operations': typeof AuthenticatedHotelOperationsRoute
-  '/hotel/requests': typeof AuthenticatedHotelRequestsRoute
-  '/hotel/stay': typeof AuthenticatedHotelStayRoute
   '/super-admin/modules': typeof AuthenticatedSuperAdminModulesRoute
-  '/vegan/charity': typeof AuthenticatedVeganCharityRoute
-  '/vegan/orders': typeof AuthenticatedVeganOrdersRoute
-  '/vegan/pos': typeof AuthenticatedVeganPosRoute
-  '/vegan/products': typeof AuthenticatedVeganProductsRoute
-  '/vegan/temples': typeof AuthenticatedVeganTemplesRoute
   '/api/public/billing-webhook': typeof ApiPublicBillingWebhookRoute
 }
 export interface FileRoutesById {
@@ -525,7 +422,6 @@ export interface FileRoutesById {
   '/_authenticated/customers': typeof AuthenticatedCustomersRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/fashion': typeof AuthenticatedFashionRouteWithChildren
-  '/_authenticated/hotel': typeof AuthenticatedHotelRouteWithChildren
   '/_authenticated/inventory': typeof AuthenticatedInventoryRoute
   '/_authenticated/marketing': typeof AuthenticatedMarketingRoute
   '/_authenticated/orders': typeof AuthenticatedOrdersRoute
@@ -539,7 +435,6 @@ export interface FileRoutesById {
   '/_authenticated/survey-stats': typeof AuthenticatedSurveyStatsRoute
   '/_authenticated/tiers': typeof AuthenticatedTiersRoute
   '/_authenticated/users': typeof AuthenticatedUsersRoute
-  '/_authenticated/vegan': typeof AuthenticatedVeganRouteWithChildren
   '/_authenticated/wallet': typeof AuthenticatedWalletRoute
   '/_authenticated/withdrawals': typeof AuthenticatedWithdrawalsRoute
   '/san-pham/$id': typeof SanPhamIdRoute
@@ -547,17 +442,7 @@ export interface FileRoutesById {
   '/_authenticated/fashion/accessories': typeof AuthenticatedFashionAccessoriesRoute
   '/_authenticated/fashion/ai-fitting': typeof AuthenticatedFashionAiFittingRoute
   '/_authenticated/fashion/returns': typeof AuthenticatedFashionReturnsRoute
-  '/_authenticated/hotel/chat': typeof AuthenticatedHotelChatRoute
-  '/_authenticated/hotel/guest-portal': typeof AuthenticatedHotelGuestPortalRoute
-  '/_authenticated/hotel/operations': typeof AuthenticatedHotelOperationsRoute
-  '/_authenticated/hotel/requests': typeof AuthenticatedHotelRequestsRoute
-  '/_authenticated/hotel/stay': typeof AuthenticatedHotelStayRoute
   '/_authenticated/super-admin/modules': typeof AuthenticatedSuperAdminModulesRoute
-  '/_authenticated/vegan/charity': typeof AuthenticatedVeganCharityRoute
-  '/_authenticated/vegan/orders': typeof AuthenticatedVeganOrdersRoute
-  '/_authenticated/vegan/pos': typeof AuthenticatedVeganPosRoute
-  '/_authenticated/vegan/products': typeof AuthenticatedVeganProductsRoute
-  '/_authenticated/vegan/temples': typeof AuthenticatedVeganTemplesRoute
   '/api/public/billing-webhook': typeof ApiPublicBillingWebhookRoute
 }
 export interface FileRouteTypes {
@@ -587,7 +472,6 @@ export interface FileRouteTypes {
     | '/customers'
     | '/dashboard'
     | '/fashion'
-    | '/hotel'
     | '/inventory'
     | '/marketing'
     | '/orders'
@@ -601,7 +485,6 @@ export interface FileRouteTypes {
     | '/survey-stats'
     | '/tiers'
     | '/users'
-    | '/vegan'
     | '/wallet'
     | '/withdrawals'
     | '/san-pham/$id'
@@ -609,17 +492,7 @@ export interface FileRouteTypes {
     | '/fashion/accessories'
     | '/fashion/ai-fitting'
     | '/fashion/returns'
-    | '/hotel/chat'
-    | '/hotel/guest-portal'
-    | '/hotel/operations'
-    | '/hotel/requests'
-    | '/hotel/stay'
     | '/super-admin/modules'
-    | '/vegan/charity'
-    | '/vegan/orders'
-    | '/vegan/pos'
-    | '/vegan/products'
-    | '/vegan/temples'
     | '/api/public/billing-webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -647,7 +520,6 @@ export interface FileRouteTypes {
     | '/customers'
     | '/dashboard'
     | '/fashion'
-    | '/hotel'
     | '/inventory'
     | '/marketing'
     | '/orders'
@@ -661,7 +533,6 @@ export interface FileRouteTypes {
     | '/survey-stats'
     | '/tiers'
     | '/users'
-    | '/vegan'
     | '/wallet'
     | '/withdrawals'
     | '/san-pham/$id'
@@ -669,17 +540,7 @@ export interface FileRouteTypes {
     | '/fashion/accessories'
     | '/fashion/ai-fitting'
     | '/fashion/returns'
-    | '/hotel/chat'
-    | '/hotel/guest-portal'
-    | '/hotel/operations'
-    | '/hotel/requests'
-    | '/hotel/stay'
     | '/super-admin/modules'
-    | '/vegan/charity'
-    | '/vegan/orders'
-    | '/vegan/pos'
-    | '/vegan/products'
-    | '/vegan/temples'
     | '/api/public/billing-webhook'
   id:
     | '__root__'
@@ -708,7 +569,6 @@ export interface FileRouteTypes {
     | '/_authenticated/customers'
     | '/_authenticated/dashboard'
     | '/_authenticated/fashion'
-    | '/_authenticated/hotel'
     | '/_authenticated/inventory'
     | '/_authenticated/marketing'
     | '/_authenticated/orders'
@@ -722,7 +582,6 @@ export interface FileRouteTypes {
     | '/_authenticated/survey-stats'
     | '/_authenticated/tiers'
     | '/_authenticated/users'
-    | '/_authenticated/vegan'
     | '/_authenticated/wallet'
     | '/_authenticated/withdrawals'
     | '/san-pham/$id'
@@ -730,17 +589,7 @@ export interface FileRouteTypes {
     | '/_authenticated/fashion/accessories'
     | '/_authenticated/fashion/ai-fitting'
     | '/_authenticated/fashion/returns'
-    | '/_authenticated/hotel/chat'
-    | '/_authenticated/hotel/guest-portal'
-    | '/_authenticated/hotel/operations'
-    | '/_authenticated/hotel/requests'
-    | '/_authenticated/hotel/stay'
     | '/_authenticated/super-admin/modules'
-    | '/_authenticated/vegan/charity'
-    | '/_authenticated/vegan/orders'
-    | '/_authenticated/vegan/pos'
-    | '/_authenticated/vegan/products'
-    | '/_authenticated/vegan/temples'
     | '/api/public/billing-webhook'
   fileRoutesById: FileRoutesById
 }
@@ -932,13 +781,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedWalletRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
-    '/_authenticated/vegan': {
-      id: '/_authenticated/vegan'
-      path: '/vegan'
-      fullPath: '/vegan'
-      preLoaderRoute: typeof AuthenticatedVeganRouteImport
-      parentRoute: typeof AuthenticatedRoute
-    }
     '/_authenticated/users': {
       id: '/_authenticated/users'
       path: '/users'
@@ -1030,13 +872,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedInventoryRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
-    '/_authenticated/hotel': {
-      id: '/_authenticated/hotel'
-      path: '/hotel'
-      fullPath: '/hotel'
-      preLoaderRoute: typeof AuthenticatedHotelRouteImport
-      parentRoute: typeof AuthenticatedRoute
-    }
     '/_authenticated/fashion': {
       id: '/_authenticated/fashion'
       path: '/fashion'
@@ -1079,82 +914,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicBillingWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/vegan/temples': {
-      id: '/_authenticated/vegan/temples'
-      path: '/temples'
-      fullPath: '/vegan/temples'
-      preLoaderRoute: typeof AuthenticatedVeganTemplesRouteImport
-      parentRoute: typeof AuthenticatedVeganRoute
-    }
-    '/_authenticated/vegan/products': {
-      id: '/_authenticated/vegan/products'
-      path: '/products'
-      fullPath: '/vegan/products'
-      preLoaderRoute: typeof AuthenticatedVeganProductsRouteImport
-      parentRoute: typeof AuthenticatedVeganRoute
-    }
-    '/_authenticated/vegan/pos': {
-      id: '/_authenticated/vegan/pos'
-      path: '/pos'
-      fullPath: '/vegan/pos'
-      preLoaderRoute: typeof AuthenticatedVeganPosRouteImport
-      parentRoute: typeof AuthenticatedVeganRoute
-    }
-    '/_authenticated/vegan/orders': {
-      id: '/_authenticated/vegan/orders'
-      path: '/orders'
-      fullPath: '/vegan/orders'
-      preLoaderRoute: typeof AuthenticatedVeganOrdersRouteImport
-      parentRoute: typeof AuthenticatedVeganRoute
-    }
-    '/_authenticated/vegan/charity': {
-      id: '/_authenticated/vegan/charity'
-      path: '/charity'
-      fullPath: '/vegan/charity'
-      preLoaderRoute: typeof AuthenticatedVeganCharityRouteImport
-      parentRoute: typeof AuthenticatedVeganRoute
-    }
     '/_authenticated/super-admin/modules': {
       id: '/_authenticated/super-admin/modules'
       path: '/super-admin/modules'
       fullPath: '/super-admin/modules'
       preLoaderRoute: typeof AuthenticatedSuperAdminModulesRouteImport
       parentRoute: typeof AuthenticatedRoute
-    }
-    '/_authenticated/hotel/stay': {
-      id: '/_authenticated/hotel/stay'
-      path: '/stay'
-      fullPath: '/hotel/stay'
-      preLoaderRoute: typeof AuthenticatedHotelStayRouteImport
-      parentRoute: typeof AuthenticatedHotelRoute
-    }
-    '/_authenticated/hotel/requests': {
-      id: '/_authenticated/hotel/requests'
-      path: '/requests'
-      fullPath: '/hotel/requests'
-      preLoaderRoute: typeof AuthenticatedHotelRequestsRouteImport
-      parentRoute: typeof AuthenticatedHotelRoute
-    }
-    '/_authenticated/hotel/operations': {
-      id: '/_authenticated/hotel/operations'
-      path: '/operations'
-      fullPath: '/hotel/operations'
-      preLoaderRoute: typeof AuthenticatedHotelOperationsRouteImport
-      parentRoute: typeof AuthenticatedHotelRoute
-    }
-    '/_authenticated/hotel/guest-portal': {
-      id: '/_authenticated/hotel/guest-portal'
-      path: '/guest-portal'
-      fullPath: '/hotel/guest-portal'
-      preLoaderRoute: typeof AuthenticatedHotelGuestPortalRouteImport
-      parentRoute: typeof AuthenticatedHotelRoute
-    }
-    '/_authenticated/hotel/chat': {
-      id: '/_authenticated/hotel/chat'
-      path: '/chat'
-      fullPath: '/hotel/chat'
-      preLoaderRoute: typeof AuthenticatedHotelChatRouteImport
-      parentRoute: typeof AuthenticatedHotelRoute
     }
     '/_authenticated/fashion/returns': {
       id: '/_authenticated/fashion/returns'
@@ -1216,51 +981,12 @@ const AuthenticatedFashionRouteChildren: AuthenticatedFashionRouteChildren = {
 const AuthenticatedFashionRouteWithChildren =
   AuthenticatedFashionRoute._addFileChildren(AuthenticatedFashionRouteChildren)
 
-interface AuthenticatedHotelRouteChildren {
-  AuthenticatedHotelChatRoute: typeof AuthenticatedHotelChatRoute
-  AuthenticatedHotelGuestPortalRoute: typeof AuthenticatedHotelGuestPortalRoute
-  AuthenticatedHotelOperationsRoute: typeof AuthenticatedHotelOperationsRoute
-  AuthenticatedHotelRequestsRoute: typeof AuthenticatedHotelRequestsRoute
-  AuthenticatedHotelStayRoute: typeof AuthenticatedHotelStayRoute
-}
-
-const AuthenticatedHotelRouteChildren: AuthenticatedHotelRouteChildren = {
-  AuthenticatedHotelChatRoute: AuthenticatedHotelChatRoute,
-  AuthenticatedHotelGuestPortalRoute: AuthenticatedHotelGuestPortalRoute,
-  AuthenticatedHotelOperationsRoute: AuthenticatedHotelOperationsRoute,
-  AuthenticatedHotelRequestsRoute: AuthenticatedHotelRequestsRoute,
-  AuthenticatedHotelStayRoute: AuthenticatedHotelStayRoute,
-}
-
-const AuthenticatedHotelRouteWithChildren =
-  AuthenticatedHotelRoute._addFileChildren(AuthenticatedHotelRouteChildren)
-
-interface AuthenticatedVeganRouteChildren {
-  AuthenticatedVeganCharityRoute: typeof AuthenticatedVeganCharityRoute
-  AuthenticatedVeganOrdersRoute: typeof AuthenticatedVeganOrdersRoute
-  AuthenticatedVeganPosRoute: typeof AuthenticatedVeganPosRoute
-  AuthenticatedVeganProductsRoute: typeof AuthenticatedVeganProductsRoute
-  AuthenticatedVeganTemplesRoute: typeof AuthenticatedVeganTemplesRoute
-}
-
-const AuthenticatedVeganRouteChildren: AuthenticatedVeganRouteChildren = {
-  AuthenticatedVeganCharityRoute: AuthenticatedVeganCharityRoute,
-  AuthenticatedVeganOrdersRoute: AuthenticatedVeganOrdersRoute,
-  AuthenticatedVeganPosRoute: AuthenticatedVeganPosRoute,
-  AuthenticatedVeganProductsRoute: AuthenticatedVeganProductsRoute,
-  AuthenticatedVeganTemplesRoute: AuthenticatedVeganTemplesRoute,
-}
-
-const AuthenticatedVeganRouteWithChildren =
-  AuthenticatedVeganRoute._addFileChildren(AuthenticatedVeganRouteChildren)
-
 interface AuthenticatedRouteChildren {
   AuthenticatedAffiliateRoute: typeof AuthenticatedAffiliateRoute
   AuthenticatedBillingRoute: typeof AuthenticatedBillingRoute
   AuthenticatedCustomersRoute: typeof AuthenticatedCustomersRouteWithChildren
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedFashionRoute: typeof AuthenticatedFashionRouteWithChildren
-  AuthenticatedHotelRoute: typeof AuthenticatedHotelRouteWithChildren
   AuthenticatedInventoryRoute: typeof AuthenticatedInventoryRoute
   AuthenticatedMarketingRoute: typeof AuthenticatedMarketingRoute
   AuthenticatedOrdersRoute: typeof AuthenticatedOrdersRoute
@@ -1274,7 +1000,6 @@ interface AuthenticatedRouteChildren {
   AuthenticatedSurveyStatsRoute: typeof AuthenticatedSurveyStatsRoute
   AuthenticatedTiersRoute: typeof AuthenticatedTiersRoute
   AuthenticatedUsersRoute: typeof AuthenticatedUsersRoute
-  AuthenticatedVeganRoute: typeof AuthenticatedVeganRouteWithChildren
   AuthenticatedWalletRoute: typeof AuthenticatedWalletRoute
   AuthenticatedWithdrawalsRoute: typeof AuthenticatedWithdrawalsRoute
   AuthenticatedSuperAdminModulesRoute: typeof AuthenticatedSuperAdminModulesRoute
@@ -1286,7 +1011,6 @@ const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedCustomersRoute: AuthenticatedCustomersRouteWithChildren,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedFashionRoute: AuthenticatedFashionRouteWithChildren,
-  AuthenticatedHotelRoute: AuthenticatedHotelRouteWithChildren,
   AuthenticatedInventoryRoute: AuthenticatedInventoryRoute,
   AuthenticatedMarketingRoute: AuthenticatedMarketingRoute,
   AuthenticatedOrdersRoute: AuthenticatedOrdersRoute,
@@ -1300,7 +1024,6 @@ const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedSurveyStatsRoute: AuthenticatedSurveyStatsRoute,
   AuthenticatedTiersRoute: AuthenticatedTiersRoute,
   AuthenticatedUsersRoute: AuthenticatedUsersRoute,
-  AuthenticatedVeganRoute: AuthenticatedVeganRouteWithChildren,
   AuthenticatedWalletRoute: AuthenticatedWalletRoute,
   AuthenticatedWithdrawalsRoute: AuthenticatedWithdrawalsRoute,
   AuthenticatedSuperAdminModulesRoute: AuthenticatedSuperAdminModulesRoute,
